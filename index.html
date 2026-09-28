@@ -88,12 +88,41 @@
 <div class="card">
     <h2>Neuen Trade eintragen</h2>
 
-    <p>Market: EUR/USD</p>
-    <p>Session: New York</p>
-    <p>Setup: Liquidity Sweep + FVG</p>
+    <label>Markt:</label>
+    <input id="market" placeholder="z.B. EUR/USD">
+
+    <br><br>
+
+    <label>Richtung:</label>
+    <select id="direction">
+        <option>Long</option>
+        <option>Short</option>
+    </select>
+
+    <br><br>
+
+    <label>Entry:</label>
+    <input id="entry" placeholder="Entry Preis">
+
+    <br><br>
+
+    <label>Stop Loss:</label>
+    <input id="sl" placeholder="Stop Loss">
+
+    <br><br>
+
+    <label>Take Profit:</label>
+    <input id="tp" placeholder="Take Profit">
+
+    <br><br>
+
+    <label>Setup:</label>
+    <input id="setup" placeholder="z.B. Liquidity Sweep + FVG">
+
+    <br><br>
 
     <button onclick="addTrade()">
-    Trade hinzufügen
+        Trade speichern
     </button>
 
 </div>
