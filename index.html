@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,96 +12,129 @@
 
 <h1>📈 Trading Journal</h1>
 
-<div class="card">
-    <h2>Dashboard</h2>
+<div class="dashboard">
 
-    <div class="stats">
-        <div class="box">
-            <h3>Winrate</h3>
-            <p id="tradeCount">0</p>
-        </div>
+    <div class="card">
+        <h2>Statistik</h2>
 
-        <div class="box">
-            <h3>Trades</h3>
-            <p>0</p>
-        </div>
+        <div class="stats">
 
-        <div class="box">
-            <h3>Risk Reward</h3>
-            <p>0R</p>
+            <div class="box">
+                <h3>Trades</h3>
+                <p id="tradeCount">0</p>
+            </div>
+
+            <div class="box">
+                <h3>Winrate</h3>
+                <p id="winrate">0%</p>
+            </div>
+
+            <div class="box">
+                <h3>Durchschnitt RR</h3>
+                <p id="averageRR">0R</p>
+            </div>
+
         </div>
     </div>
+
+
+    <div class="card">
+
+        <h2>Neuen Trade eintragen</h2>
+
+        <label>Markt</label>
+        <input id="market" placeholder="EUR/USD">
+
+
+        <label>Richtung</label>
+        <select id="direction">
+            <option>Long</option>
+            <option>Short</option>
+        </select>
+
+
+        <label>Entry</label>
+        <input id="entry" placeholder="Entry Preis">
+
+
+        <label>Stop Loss</label>
+        <input id="sl" placeholder="Stop Loss">
+
+
+        <label>Take Profit</label>
+        <input id="tp" placeholder="Take Profit">
+
+
+        <label>Setup</label>
+        <select id="setup">
+            <option>Liquidity Sweep</option>
+            <option>Fair Value Gap</option>
+            <option>Market Structure Shift</option>
+            <option>Break of Structure</option>
+        </select>
+
+
+        <label>Ergebnis</label>
+        <select id="result">
+            <option>Win</option>
+            <option>Loss</option>
+        </select>
+
+
+        <button onclick="addTrade()">
+            Trade speichern
+        </button>
+
+    </div>
+
+
+
+    <div class="card">
+
+        <h2>Meine Trades</h2>
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th>Markt</th>
+                    <th>Richtung</th>
+                    <th>Entry</th>
+                    <th>SL</th>
+                    <th>TP</th>
+                    <th>Setup</th>
+                    <th>Ergebnis</th>
+                </tr>
+            </thead>
+
+            <tbody id="tradeTable">
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+
+    <div class="card">
+
+        <h2>TJR Lernfortschritt</h2>
+
+        <p>✅ Liquidity</p>
+        <p>✅ Market Structure</p>
+        <p>⏳ Fair Value Gap</p>
+        <p>⏳ Backtesting</p>
+        <p>⏳ Psychology</p>
+
+    </div>
+
+
 </div>
 
 
-<div class="card">
-    <h2>TJR Lernfortschritt</h2>
-
-    <p>✅ Liquidity</p>
-    <p>⏳ Market Structure</p>
-    <p>⏳ Fair Value Gaps</p>
-    <p>⏳ Backtesting</p>
-
-</div>
-
-
-<div class="card">
-    <h2>Neuen Trade eintragen</h2>
-
-    <label>Markt:</label>
-    <input id="market" placeholder="z.B. EUR/USD">
-
-    <br><br>
-
-    <label>Richtung:</label>
-    <select id="direction">
-        <option>Long</option>
-        <option>Short</option>
-    </select>
-
-    <br><br>
-
-    <label>Entry:</label>
-    <input id="entry" placeholder="Entry Preis">
-
-    <br><br>
-
-    <label>Stop Loss:</label>
-    <input id="sl" placeholder="Stop Loss">
-
-    <br><br>
-
-    <label>Take Profit:</label>
-    <input id="tp" placeholder="Take Profit">
-
-    <br><br>
-
-    <label>Setup:</label>
-    <input id="setup" placeholder="z.B. Liquidity Sweep + FVG">
-
-    <br><br>
-
-    <button onclick="addTrade()">
-        Trade speichern
-    </button>
-
-</div>
-<div class="card">
-
-    <h2>Meine Trades</h2>
-
-    <table id="tradeTable">
-        <tr>
-            <th>Markt</th>
-            <th>Richtung</th>
-            <th>Entry</th>
-            <th>SL</th>
-            <th>TP</th>
-            <th>Setup</th>
-        </tr>
-    </table>
-
-</div>
 <script src="script.js"></script>
+
 </body>
+
 </html>
