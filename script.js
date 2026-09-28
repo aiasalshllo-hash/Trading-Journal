@@ -1,161 +1,140 @@
-* {
-    box-sizing: border-box;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    background: #0f172a;
-    color: white;
-    margin: 0;
-    padding: 20px;
-}
+let trades = [];
 
 
-h1 {
-    text-align: center;
-    font-size: 40px;
-    margin-bottom: 30px;
-}
+function addTrade() {
+
+    let market = document.getElementById("market").value;
+    let direction = document.getElementById("direction").value;
+    let entry = document.getElementById("entry").value;
+    let sl = document.getElementById("sl").value;
+    let tp = document.getElementById("tp").value;
+    let setup = document.getElementById("setup").value;
+    let result = document.getElementById("result").value;
 
 
-.dashboard {
-    max-width: 1100px;
-    margin: auto;
-}
+    if (
+        market === "" ||
+        entry === "" ||
+        sl === "" ||
+        tp === ""
+    ) {
 
+        alert("Bitte alle Felder ausfüllen!");
 
-.card {
-    background: #1e293b;
-    padding: 25px;
-    margin-bottom: 25px;
-    border-radius: 18px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-}
-
-
-h2 {
-    margin-top: 0;
-}
-
-
-.stats {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-
-.box {
-    background: #334155;
-    padding: 20px;
-    border-radius: 15px;
-    flex: 1;
-    min-width: 180px;
-    text-align: center;
-}
-
-
-.box p {
-    font-size: 30px;
-    font-weight: bold;
-}
-
-
-label {
-    display: block;
-    margin-top: 15px;
-    margin-bottom: 5px;
-}
-
-
-input,
-select {
-
-    width: 100%;
-    padding: 12px;
-
-    background: #334155;
-    color: white;
-
-    border: none;
-    border-radius: 10px;
-
-    font-size: 16px;
-
-}
-
-
-button {
-
-    margin-top: 25px;
-
-    width: 100%;
-
-    padding: 15px;
-
-    background: #22c55e;
-
-    color: white;
-
-    border: none;
-
-    border-radius: 12px;
-
-    font-size: 18px;
-
-    cursor: pointer;
-
-}
-
-
-button:hover {
-
-    opacity: 0.85;
-
-}
-
-
-
-table {
-
-    width: 100%;
-
-    border-collapse: collapse;
-
-}
-
-
-th,
-td {
-
-    padding: 12px;
-
-    text-align: center;
-
-    border-bottom: 1px solid #475569;
-
-}
-
-
-th {
-
-    background: #334155;
-
-}
-
-
-@media(max-width:700px){
-
-    .stats{
-
-        flex-direction: column;
+        return;
 
     }
 
-    table{
 
-        font-size: 12px;
+
+    let trade = {
+
+        market: market,
+        direction: direction,
+        entry: entry,
+        sl: sl,
+        tp: tp,
+        setup: setup,
+        result: result
+
+    };
+
+
+    trades.push(trade);
+
+
+    updateTable();
+
+    updateStats();
+
+
+    document.getElementById("market").value = "";
+    document.getElementById("entry").value = "";
+    document.getElementById("sl").value = "";
+    document.getElementById("tp").value = "";
+
+}
+
+
+
+function updateTable(){
+
+    let table = document.getElementById("tradeTable");
+
+
+    table.innerHTML = "";
+
+
+    trades.forEach(function(trade){
+
+
+        let row = `
+
+        <tr>
+
+        <td>${trade.market}</td>
+
+        <td>${trade.direction}</td>
+
+        <td>${trade.entry}</td>
+
+        <td>${trade.sl}</td>
+
+        <td>${trade.tp}</td>
+
+        <td>${trade.setup}</td>
+
+        <td>${trade.result}</td>
+
+        </tr>
+
+        `;
+
+
+        table.innerHTML += row;
+
+
+    });
+
+
+}
+
+
+
+
+function updateStats(){
+
+
+    let total = trades.length;
+
+
+    document.getElementById("tradeCount").innerHTML = total;
+
+
+
+    if(total === 0){
+
+        document.getElementById("winrate").innerHTML = "0%";
+
+        return;
 
     }
+
+
+
+    let wins = trades.filter(function(trade){
+
+        return trade.result === "Win";
+
+    }).length;
+
+
+
+    let winrate = Math.round((wins / total) * 100);
+
+
+
+    document.getElementById("winrate").innerHTML = winrate + "%";
+
 
 }
