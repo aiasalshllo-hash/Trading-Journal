@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trading Journal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #0f172a;
+            color: white;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .card {
+            background: #1e293b;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 15px;
+        }
+
+        .stats {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .box {
+            background: #334155;
+            padding: 20px;
+            border-radius: 10px;
+            flex: 1;
+            min-width: 150px;
+        }
+
+        button {
+            background: #22c55e;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>📈 Trading Journal</h1>
+
+<div class="card">
+    <h2>Dashboard</h2>
+
+    <div class="stats">
+        <div class="box">
+            <h3>Winrate</h3>
+            <p>0%</p>
+        </div>
+
+        <div class="box">
+            <h3>Trades</h3>
+            <p>0</p>
+        </div>
+
+        <div class="box">
+            <h3>Risk Reward</h3>
+            <p>0R</p>
+        </div>
+    </div>
+</div>
+
+
+<div class="card">
+    <h2>TJR Lernfortschritt</h2>
+
+    <p>✅ Liquidity</p>
+    <p>⏳ Market Structure</p>
+    <p>⏳ Fair Value Gaps</p>
+    <p>⏳ Backtesting</p>
+
+</div>
+
+
+<div class="card">
+    <h2>Neuen Trade eintragen</h2>
+
+    <p>Market: EUR/USD</p>
+    <p>Session: New York</p>
+    <p>Setup: Liquidity Sweep + FVG</p>
+
+    <button>
+        Trade hinzufügen
+    </button>
+
+</div>
+
+
+</body>
+</html>
