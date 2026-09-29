@@ -1,97 +1,99 @@
-let trades = [];
+// Trading Journal AI
+// Dashboard Functions
 
 
-function addTrade() {
+const trades = [
 
-    let market = document.getElementById("market").value;
-    let direction = document.getElementById("direction").value;
-    let entry = document.getElementById("entry").value;
-    let sl = document.getElementById("sl").value;
-    let tp = document.getElementById("tp").value;
-    let setup = document.getElementById("setup").value;
-    let result = document.getElementById("result").value;
+    {
+        market: "EUR/USD",
+        setup: "Liquidity Sweep",
+        result: "WIN",
+        rr: 2.5
+    },
 
+    {
+        market: "NAS100",
+        setup: "Fair Value Gap",
+        result: "LOSS",
+        rr: -1
+    },
 
-    if (
-        market === "" ||
-        entry === "" ||
-        sl === "" ||
-        tp === ""
-    ) {
-
-        alert("Bitte alle Felder ausfüllen!");
-
-        return;
-
+    {
+        market: "GBP/USD",
+        setup: "Break Of Structure",
+        result: "WIN",
+        rr: 3
     }
 
+];
 
 
-    let trade = {
 
-        market: market,
-        direction: direction,
-        entry: entry,
-        sl: sl,
-        tp: tp,
-        setup: setup,
-        result: result
+
+
+function calculateStats(){
+
+
+    let total = trades.length;
+
+
+    let wins = trades.filter(
+        trade => trade.result === "WIN"
+    ).length;
+
+
+    let winrate = Math.round(
+        (wins / total) * 100
+    );
+
+
+    return {
+
+        total: total,
+
+        winrate: winrate
 
     };
 
-
-    trades.push(trade);
-
-
-    updateTable();
-
-    updateStats();
-
-
-    document.getElementById("market").value = "";
-    document.getElementById("entry").value = "";
-    document.getElementById("sl").value = "";
-    document.getElementById("tp").value = "";
 
 }
 
 
 
-function updateTable(){
-
-    let table = document.getElementById("tradeTable");
 
 
-    table.innerHTML = "";
 
 
-    trades.forEach(function(trade){
+function addTradeToTable(){
 
 
-        let row = `
+    const table = document.querySelector("table");
 
-        <tr>
+
+    trades.forEach(trade => {
+
+
+        const row = document.createElement("tr");
+
+
+        row.innerHTML = `
 
         <td>${trade.market}</td>
 
-        <td>${trade.direction}</td>
-
-        <td>${trade.entry}</td>
-
-        <td>${trade.sl}</td>
-
-        <td>${trade.tp}</td>
-
         <td>${trade.setup}</td>
 
-        <td>${trade.result}</td>
+        <td class="${trade.result === "WIN" ? "win" : "loss"}">
 
-        </tr>
+        ${trade.result}
+
+        </td>
+
+        <td>${trade.rr}R</td>
 
         `;
 
 
-        table.innerHTML += row;
+        table.appendChild(row);
 
 
     });
@@ -102,39 +104,62 @@ function updateTable(){
 
 
 
-function updateStats(){
-
-
-    let total = trades.length;
-
-
-    document.getElementById("tradeCount").innerHTML = total;
 
 
 
-    if(total === 0){
+function updateAI(){
 
-        document.getElementById("winrate").innerHTML = "0%";
 
-        return;
+    const aiText = document.querySelector(".ai");
+
+
+    if(aiText){
+
+        aiText.innerHTML = `
+
+        <p>
+        Analyse deiner letzten Trades:
+        </p>
+
+        <h3>
+        Starkes Setup: Liquidity Sweep
+        </h3>
+
+
+        <p>
+        Verbesserung:
+        </p>
+
+
+        <h3>
+        Mehr Geduld bei Entries
+        </h3>
+
+
+        `;
 
     }
 
 
-
-    let wins = trades.filter(function(trade){
-
-        return trade.result === "Win";
-
-    }).length;
+}
 
 
 
-    let winrate = Math.round((wins / total) * 100);
 
 
 
-    document.getElementById("winrate").innerHTML = winrate + "%";
+
+function startDashboard(){
+
+
+    addTradeToTable();
+
+
+    updateAI();
 
 
 }
+
+
+
+window.onload = startDashboard;
