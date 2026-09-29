@@ -2,138 +2,504 @@
 <html lang="de">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trading Journal</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Trading Journal AI</title>
+
+<link rel="stylesheet" href="style.css">
+
 </head>
+
 
 <body>
 
-<h1>📈 Trading Journal</h1>
 
-<div class="dashboard">
-
-    <div class="card">
-        <h2>Statistik</h2>
-
-        <div class="stats">
-
-            <div class="box">
-                <h3>Trades</h3>
-                <p id="tradeCount">0</p>
-            </div>
-
-            <div class="box">
-                <h3>Winrate</h3>
-                <p id="winrate">0%</p>
-            </div>
-
-            <div class="box">
-                <h3>Durchschnitt RR</h3>
-                <p id="averageRR">0R</p>
-            </div>
-
-        </div>
-    </div>
+<div class="layout">
 
 
-    <div class="card">
+<!-- SIDEBAR -->
 
-        <h2>Neuen Trade eintragen</h2>
+<aside class="sidebar">
 
-        <label>Markt</label>
-        <input id="market" placeholder="EUR/USD">
-
-
-        <label>Richtung</label>
-        <select id="direction">
-            <option>Long</option>
-            <option>Short</option>
-        </select>
+<h1>
+📈 TJR AI
+</h1>
 
 
-        <label>Entry</label>
-        <input id="entry" placeholder="Entry Preis">
+<nav>
+
+<a class="active">Dashboard</a>
+<a>Trades</a>
+<a>Analytics</a>
+<a>AI Coach</a>
+<a>Psychology</a>
+<a>Risk Management</a>
+<a>Trading Academy</a>
+<a>Calendar</a>
+
+</nav>
 
 
-        <label>Stop Loss</label>
-        <input id="sl" placeholder="Stop Loss">
+<div class="profile">
+
+<h3>
+Trader
+</h3>
+
+<p>
+TJR Student
+</p>
+
+</div>
 
 
-        <label>Take Profit</label>
-        <input id="tp" placeholder="Take Profit">
-
-
-        <label>Setup</label>
-        <select id="setup">
-            <option>Liquidity Sweep</option>
-            <option>Fair Value Gap</option>
-            <option>Market Structure Shift</option>
-            <option>Break of Structure</option>
-        </select>
-
-
-        <label>Ergebnis</label>
-        <select id="result">
-            <option>Win</option>
-            <option>Loss</option>
-        </select>
-
-
-        <button onclick="addTrade()">
-            Trade speichern
-        </button>
-
-    </div>
+</aside>
 
 
 
-    <div class="card">
-
-        <h2>Meine Trades</h2>
-
-        <table>
-
-            <thead>
-                <tr>
-                    <th>Markt</th>
-                    <th>Richtung</th>
-                    <th>Entry</th>
-                    <th>SL</th>
-                    <th>TP</th>
-                    <th>Setup</th>
-                    <th>Ergebnis</th>
-                </tr>
-            </thead>
-
-            <tbody id="tradeTable">
-
-            </tbody>
-
-        </table>
-
-    </div>
 
 
+<!-- MAIN -->
 
-    <div class="card">
+<main class="main">
 
-        <h2>TJR Lernfortschritt</h2>
 
-        <p>✅ Liquidity</p>
-        <p>✅ Market Structure</p>
-        <p>⏳ Fair Value Gap</p>
-        <p>⏳ Backtesting</p>
-        <p>⏳ Psychology</p>
+<header>
 
-    </div>
+<div>
+
+<h2>
+Good Morning 👋
+</h2>
+
+<p>
+Your trading performance overview
+</p>
+
+</div>
+
+
+<div class="market">
+
+🟢 Market Open
+
+</div>
+
+
+</header>
+
+
+
+
+
+
+
+<!-- STAT CARDS -->
+
+
+<section class="cards">
+
+
+<div class="card">
+
+<p>
+Balance
+</p>
+
+<h2>
+$10,420
+</h2>
+
+<span>
++4.8%
+</span>
+
+</div>
+
+
+
+<div class="card">
+
+<p>
+Total Profit
+</p>
+
+<h2>
++$1,240
+</h2>
+
+<span>
++12.4R
+</span>
+
+</div>
+
+
+
+
+<div class="card">
+
+<p>
+Winrate
+</p>
+
+<h2>
+62%
+</h2>
+
+<span>
+Good consistency
+</span>
+
+</div>
+
+
+
+
+<div class="card">
+
+<p>
+Trades
+</p>
+
+<h2>
+61
+</h2>
+
+<span>
+This month
+</span>
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<section class="grid">
+
+
+
+<!-- CHART -->
+
+
+<div class="panel">
+
+
+<h2>
+Equity Curve
+</h2>
+
+
+<div class="chart">
+
+<div class="line"></div>
+
+</div>
 
 
 </div>
 
 
+
+
+
+<!-- AI -->
+
+<div class="panel">
+
+
+<h2>
+🤖 AI Coach
+</h2>
+
+
+<div class="ai">
+
+
+<p>
+Your strongest setup:
+</p>
+
+
+<h3>
+Liquidity Sweep + FVG
+</h3>
+
+
+<p>
+Your biggest improvement:
+</p>
+
+
+<h3>
+Wait for confirmation
+</h3>
+
+
+</div>
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+
+<section class="grid">
+
+
+
+<div class="panel">
+
+
+<h2>
+Setup Performance
+</h2>
+
+
+<div class="progress">
+
+<p>
+Liquidity Sweep
+</p>
+
+<div>
+<span style="width:75%">
+</span>
+</div>
+
+
+</div>
+
+
+
+<div class="progress">
+
+<p>
+Fair Value Gap
+</p>
+
+<div>
+<span style="width:62%">
+</span>
+</div>
+
+
+</div>
+
+
+
+<div class="progress">
+
+<p>
+Break Of Structure
+</p>
+
+<div>
+<span style="width:55%">
+</span>
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="panel">
+
+
+<h2>
+TJR Academy
+</h2>
+
+
+<ul>
+
+<li>✅ Liquidity</li>
+
+<li>✅ Market Structure</li>
+
+<li>⏳ Fair Value Gap</li>
+
+<li>⏳ Backtesting</li>
+
+<li>⏳ Psychology</li>
+
+
+</ul>
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- TABLE -->
+
+
+<section class="panel">
+
+
+<h2>
+Recent Trades
+</h2>
+
+
+
+<table>
+
+
+<tr>
+
+<th>
+Market
+</th>
+
+<th>
+Setup
+</th>
+
+<th>
+Result
+</th>
+
+<th>
+RR
+</th>
+
+
+</tr>
+
+
+
+
+<tr>
+
+<td>
+EUR/USD
+</td>
+
+<td>
+Liquidity Sweep
+</td>
+
+<td class="win">
+WIN
+</td>
+
+<td>
++2.5R
+</td>
+
+
+</tr>
+
+
+
+
+<tr>
+
+<td>
+NAS100
+</td>
+
+<td>
+FVG
+</td>
+
+<td class="loss">
+LOSS
+</td>
+
+<td>
+-1R
+</td>
+
+
+</tr>
+
+
+
+<tr>
+
+<td>
+GBP/USD
+</td>
+
+<td>
+BOS
+</td>
+
+<td class="win">
+WIN
+</td>
+
+<td>
++3R
+</td>
+
+
+</tr>
+
+
+
+</table>
+
+
+</section>
+
+
+
+
+
+
+
+</main>
+
+
+</div>
+
+
+
+
 <script src="script.js"></script>
+
 
 </body>
 
